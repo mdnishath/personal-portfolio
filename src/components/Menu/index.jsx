@@ -36,6 +36,7 @@ const Menu = () => {
           <Title text={"Navigation"} />
           <div>{menuOptions}</div>
         </div>
+        <div className="border-b-2 mt-5 border-[#39d68a]"></div>
         <div className=" my-5">
           <Title text={"Contact Info"} />
           <div className="mt-5 flex flex-col gap-4">
@@ -53,23 +54,24 @@ const Menu = () => {
       </div>
       <div className="border-b-2 mt-5 border-[#39d68a]"></div>
       <div className="mt-5">
-        <div className="flex justify-center">
+        <div className="flex ">
           <Title text={"Social"} />
         </div>
-        <div className="flex gap-3 text-2xl justify-center mt-5">
+        <div className="flex gap-3 text-2xl  mt-5">
           <FaFacebookF />
           <FaTwitter />
           <FaGithub />
           <FaLinkedin />
         </div>
       </div>
+      <div className="border-b-2 mt-5 border-[#39d68a]"></div>
       <div className="mt-5">
-        <div className="flex justify-center">
+        <div className="flex">
           <Title text={"Authentication"} />
         </div>
         <div className="md:flex ">
           {!user ? (
-            <ul className="flex justify-center w-full text-surfece">
+            <ul className="flex w-full text-surfece">
               <li>
                 <ActiveLink
                   normal={"text-surfece"}
