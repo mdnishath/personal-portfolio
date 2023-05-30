@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "img": "https://i.ibb.co/6nRPBkL/layers.png",
+    "name": "Web Development",
+    "description": "Building responsive and interactive web applications using modern front-end technologies like HTML, CSS, and JavaScript."
+  },
+  {
+    "id": 2,
+    "img": "https://i.ibb.co/Vx2fQp8/web-design.png",
+    "name": "Database Design",
+    "description": "Designing and implementing efficient database structures, optimizing queries, and ensuring data integrity."
+  },
+  {
+    "id": 3,
+    "img": "https://i.ibb.co/D5Ms6JZ/database.png",
+    "name": "Server-Side Development",
+    "description": "Developing server-side logic and APIs using frameworks like Node.js, Python, or Ruby on Rails."
+  },
+  {
+    "id": 4,
+    "img": "https://i.ibb.co/D5Ms6JZ/database.png",
+    "name": "Mobile App Development",
+    "description": "Creating cross-platform or native mobile applications for iOS and Android devices using frameworks like React Native or Flutter."
+  },
+  {
+    "id": 5,
+    "img": "https://i.ibb.co/Vx2fQp8/web-design.png",
+    "name": "DevOps",
+    "description": "Setting up and maintaining the infrastructure, continuous integration/delivery, and automating deployment processes."
+  },
+  {
+    "id": 6,
+    "img": "https://i.ibb.co/6nRPBkL/layers.png",
+    "name": "Version Control",
+    "description": "Using version control systems like Git to manage code repositories, track changes, and collaborate efficiently."
+  },
+  {
+    "id": 1,
+    "img": "https://i.ibb.co/6nRPBkL/layers.png",
+    "name": "Web Development",
+    "description": "Building responsive and interactive web applications using modern front-end technologies like HTML, CSS, and JavaScript."
+  },
+  {
+    "id": 2,
+    "img": "https://i.ibb.co/Vx2fQp8/web-design.png",
+    "name": "Database Design",
+    "description": "Designing and implementing efficient database structures, optimizing queries, and ensuring data integrity."
+  },
+  {
+    "id": 3,
+    "img": "https://i.ibb.co/D5Ms6JZ/database.png",
+    "name": "Server-Side Development",
+    "description": "Developing server-side logic and APIs using frameworks like Node.js, Python, or Ruby on Rails."
+  },
+  {
+    "id": 4,
+    "img": "https://i.ibb.co/D5Ms6JZ/database.png",
+    "name": "Mobile App Development",
+    "description": "Creating cross-platform or native mobile applications for iOS and Android devices using frameworks like React Native or Flutter."
+  },
+  {
+    "id": 5,
+    "img": "https://i.ibb.co/Vx2fQp8/web-design.png",
+    "name": "DevOps",
+    "description": "Setting up and maintaining the infrastructure, continuous integration/delivery, and automating deployment processes."
+  },
+  {
+    "id": 6,
+    "img": "https://i.ibb.co/6nRPBkL/layers.png",
+    "name": "Version Control",
+    "description": "Using version control systems like Git to manage code repositories, track changes, and collaborate efficiently."
+  }
+]
