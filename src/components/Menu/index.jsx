@@ -1,14 +1,18 @@
 import React from "react";
 import Title from "./Title";
+
 import { BsTelephoneForward } from "react-icons/bs";
+import { AiOutlineClose } from "react-icons/ai";
 import { MdOutlineMail } from "react-icons/md";
 import { FaFacebookF, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { GoLocation } from "react-icons/go";
 import ContactBox from "./ContactBox";
 import ActiveMenu from "../ActiveMenu";
 import FeedCard from "./FeedCard";
+import { useAuth } from "../../hooks/useAuth";
 
 const Menu = () => {
+  const { isOpen, setOpen } = useAuth();
   const menuOptions = (
     <ul className="flex flex-col">
       <li className="">
@@ -21,7 +25,11 @@ const Menu = () => {
     </ul>
   );
   return (
-    <div>
+    <div className="relative">
+      <AiOutlineClose
+        onClick={() => setOpen(!isOpen)}
+        className="text-3xl cursor-pointer text-surfece z-20 absolute top-0 right-0"
+      />
       <div className="grid grid-cols-1">
         <div className="flex flex-col">
           <Title text={"Navigation"} />

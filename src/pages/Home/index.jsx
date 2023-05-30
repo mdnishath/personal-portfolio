@@ -43,18 +43,17 @@ const Home = () => {
         <h4 className="text-white font-semibold text-xl my-5">
           Services Offered:
         </h4>
-        <p className="text-text-dark text-lg">
-          <ul className="list-disc pl-5 marker:text-primary">
-            <li>Full-stack web application development using the MERN stack</li>
-            <li>Custom web development and system integration</li>
-            <li>API development and integration</li>
-            <li>Database design and management</li>
-            <li>Front-end development with React.js</li>
-            <li>Back-end development with Node.js and Express.js</li>
-            <li>User interface design and optimization</li>
-            <li>Testing, debugging, and maintenance</li>
-          </ul>
-        </p>
+
+        <ul className="list-disc pl-5 marker:text-primary text-text-dark text-lg">
+          <li>Full-stack web application development using the MERN stack</li>
+          <li>Custom web development and system integration</li>
+          <li>API development and integration</li>
+          <li>Database design and management</li>
+          <li>Front-end development with React.js</li>
+          <li>Back-end development with Node.js and Express.js</li>
+          <li>User interface design and optimization</li>
+          <li>Testing, debugging, and maintenance</li>
+        </ul>
       </div>
     </div>
   );
