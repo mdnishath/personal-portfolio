@@ -65,7 +65,7 @@ const Navbar = () => {
             <CgMenuLeft className="text-primary text-2xl" />
           </div>
           {isOpen && (
-            <div className="absolute h-full bg-primary w-[300px] right-0 top-0 p-5 z-10">
+            <div className="fixed h-full bg-primary w-[300px] right-0 top-0 p-5 z-10">
               <Menu />
             </div>
           )}
