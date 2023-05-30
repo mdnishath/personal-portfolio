@@ -7,10 +7,10 @@ import { useAuth } from "../hooks/useAuth";
 const AuthLayout = () => {
   const { isOpen } = useAuth();
   return (
-    <div className="px-2 sm:px-2 md:px-3 lg:px-0">
+    <div className="px-2 sm:px-2 md:px-3 lg:px-4">
       <Container>
         <Navbar />
-        <div className="bg-surfece h-[calc(100vh-90px)] flex md:h-[calc(100vh-90px)] md:items-center relative">
+        <div className="md:pt-[100px]">
           <Outlet />
         </div>
       </Container>

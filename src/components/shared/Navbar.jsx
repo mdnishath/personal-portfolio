@@ -32,10 +32,22 @@ const Navbar = () => {
             {!user ? (
               <div className="flex">
                 <li>
-                  <ActiveLink to={"/login"}>Login</ActiveLink>
+                  <ActiveLink
+                    normal={"text-text"}
+                    active={"text-primary"}
+                    to={"/login"}
+                  >
+                    Login
+                  </ActiveLink>
                 </li>
                 <li>
-                  <ActiveLink to={"/signup"}>Sign Up</ActiveLink>
+                  <ActiveLink
+                    normal={"text-text"}
+                    active={"text-primary"}
+                    to={"/signup"}
+                  >
+                    Sign Up
+                  </ActiveLink>
                 </li>
               </div>
             ) : (

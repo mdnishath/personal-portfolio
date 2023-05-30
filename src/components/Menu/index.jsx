@@ -9,9 +9,11 @@ import { GoLocation } from "react-icons/go";
 import ContactBox from "./ContactBox";
 import ActiveMenu from "../ActiveMenu";
 import { useAuth } from "../../hooks/useAuth";
+import ActiveLink from "../ActiveLink";
 
 const Menu = () => {
   const { isOpen, setOpen } = useAuth();
+  const user = false;
   const menuOptions = (
     <ul className="flex flex-col">
       <li className="">
@@ -59,6 +61,39 @@ const Menu = () => {
           <FaTwitter />
           <FaGithub />
           <FaLinkedin />
+        </div>
+      </div>
+      <div className="mt-5">
+        <div className="flex justify-center">
+          <Title text={"Authentication"} />
+        </div>
+        <div className="hidden md:flex ">
+          {!user ? (
+            <ul className="flex justify-center w-full text-surfece">
+              <li>
+                <ActiveLink
+                  normal={"text-surfece"}
+                  active={"text-surfece"}
+                  to={"/login"}
+                >
+                  Login
+                </ActiveLink>
+              </li>
+              <li>
+                <ActiveLink
+                  className={"text-surfece"}
+                  active={"text-surfece"}
+                  to={"/signup"}
+                >
+                  Sign Up
+                </ActiveLink>
+              </li>
+            </ul>
+          ) : (
+            <li>
+              <ActiveLink>Logout</ActiveLink>
+            </li>
+          )}
         </div>
       </div>
     </div>
