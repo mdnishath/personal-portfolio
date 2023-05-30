@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const ActiveLink = ({ to, children, normal, active }) => {
-  console.log(normal, active);
   return (
     <NavLink
       to={to}

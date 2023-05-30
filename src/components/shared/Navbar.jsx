@@ -10,8 +10,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const [dark, setDark] = useState(false);
   const { isOpen, setOpen } = useAuth();
-  console.log(isOpen);
-  const user = false;
+  const { user } = useAuth();
 
   return (
     <nav className="flex flex-shrink-0 items-center py-3 h-[90px]">
@@ -29,7 +28,7 @@ const Navbar = () => {
         )}
         <div className="hidden md:flex ">
           <ul className="flex">
-            {!user ? (
+            {!user && (
               <div className="flex">
                 <li>
                   <ActiveLink
@@ -50,10 +49,6 @@ const Navbar = () => {
                   </ActiveLink>
                 </li>
               </div>
-            ) : (
-              <li>
-                <ActiveLink>Logout</ActiveLink>
-              </li>
             )}
           </ul>
         </div>

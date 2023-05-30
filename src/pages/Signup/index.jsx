@@ -7,17 +7,43 @@ import SocialLogin from "../../components/SocialLogin";
 import Title from "../../components/Title";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useAuth } from "../../hooks/useAuth";
+import Swal from "sweetalert2";
+import { BeatLoader } from "react-spinners";
 
 const Signup = () => {
+  const { createUser, loading, setLoading, uploadImage, updateUser } =
+    useAuth();
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
   const [showPaword, setShowPassword] = useState(false);
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    setLoading(true);
+    const file = data.image[0];
+    const uploadURL = await uploadImage(file);
+    if (uploadURL) {
+      const result = await createUser(data.email, data.password);
+      if (result.user) {
+        updateUser(data.name, uploadURL);
+
+        setLoading(false);
+        reset();
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Your Account has been created",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    }
+  };
 
   return (
     <div className="w-full bg-overlay px-5 md:py-10 rounded-md border-2 border-overlay-light overflow-hidden relative">
@@ -130,9 +156,18 @@ const Signup = () => {
             </div>
 
             <div className="relative overflow-hidden flex justify-end flex-col">
-              <button className="bg-primary px-10 py-2 rounded-md text-lg font-semibold w-full">
-                Sign Up
-              </button>
+              {loading ? (
+                <button className="bg-primary px-10 py-2 rounded-md text-lg font-semibold w-full">
+                  <BeatLoader className="text-surfece" />
+                </button>
+              ) : (
+                <button
+                  type="submit"
+                  className="bg-primary loading px-10 py-2 rounded-md text-lg font-semibold w-full"
+                >
+                  Sign Up
+                </button>
+              )}
               <p className="text-white text-center mt-5">
                 Already have an account?
                 <Link to={"/login"} className="ml-1">

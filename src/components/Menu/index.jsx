@@ -8,12 +8,14 @@ import { FaFacebookF, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { GoLocation } from "react-icons/go";
 import ContactBox from "./ContactBox";
 import ActiveMenu from "../ActiveMenu";
-import { useAuth } from "../../hooks/useAuth";
 import ActiveLink from "../ActiveLink";
+import { useAuth } from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const Menu = () => {
-  const { isOpen, setOpen } = useAuth();
-  const user = false;
+  const navigate = useNavigate();
+  const { isOpen, setOpen, logOut, setLoading } = useAuth();
+  const { user } = useAuth();
   const menuOptions = (
     <ul className="flex flex-col">
       <li className="">
@@ -25,6 +27,12 @@ const Menu = () => {
       </li>
     </ul>
   );
+
+  const handleLogout = async () => {
+    await logOut();
+    setLoading(false);
+    navigate("/login");
+  };
   return (
     <div className="relative">
       <AiOutlineClose
@@ -92,9 +100,12 @@ const Menu = () => {
               </li>
             </ul>
           ) : (
-            <li>
-              <ActiveLink>Logout</ActiveLink>
-            </li>
+            <button
+              onClick={handleLogout}
+              className=" px-10 py-2 bg-surfece text-text-dark font-semibold text-lg rounded-md w-full mt-4"
+            >
+              Logout
+            </button>
           )}
         </div>
       </div>
