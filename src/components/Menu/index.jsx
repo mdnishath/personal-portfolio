@@ -8,7 +8,6 @@ import { FaFacebookF, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { GoLocation } from "react-icons/go";
 import ContactBox from "./ContactBox";
 import ActiveMenu from "../ActiveMenu";
-import FeedCard from "./FeedCard";
 import { useAuth } from "../../hooks/useAuth";
 
 const Menu = () => {

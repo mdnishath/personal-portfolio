@@ -3,7 +3,6 @@ import RootLayout from "../layouts/RootLayout";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Services from "../pages/Services";
-import Projects from "../pages/projects";
 import Error from "../components/Error";
 import Dashboard from "../pages/Dashboard";
 import DashboardLayout from "../layouts/DashboardLayout";
@@ -19,7 +18,6 @@ export const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "about", element: <About /> },
       { path: "services", element: <Services /> },
-      { path: "projects", element: <Projects /> },
       { path: "*", element: <Error /> },
     ],
   },
