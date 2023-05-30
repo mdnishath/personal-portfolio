@@ -9,7 +9,7 @@ const Signup = () => {
   return (
     <div className="w-full bg-overlay px-5 md:py-10 rounded-md border-2 border-overlay-light overflow-hidden relative">
       <div className="grid md:grid-cols-2 p-5">
-        <div className="flex order-2 md:order-1 h-full items-center justify-center">
+        <div className="flex order-2 md:order-1 h-full items-center justify-center mt-5 md:mt-0">
           <figure className="flex justify-center">
             <img className="w-[400px]" src={image} />
           </figure>
