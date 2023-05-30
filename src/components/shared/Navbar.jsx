@@ -5,6 +5,7 @@ import { BsSun, BsMoonStarsFill } from "react-icons/bs";
 import { CgMenuLeft } from "react-icons/cg";
 import { useAuth } from "../../hooks/useAuth";
 import Menu from "../Menu";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [dark, setDark] = useState(false);
@@ -13,28 +14,30 @@ const Navbar = () => {
   const user = false;
 
   return (
-    <nav className="flex items-center py-3 h-[90px]">
-      <figure>
-        <img className=" w-[180px] lg:w-[250px]" src={logo} alt="Logo" />
-      </figure>
+    <nav className="flex flex-shrink-0 items-center py-3 h-[90px]">
+      <Link to={"/"}>
+        <figure>
+          <img className=" w-full lg:w-[250px]" src={logo} alt="Logo" />
+        </figure>
+      </Link>
 
-      <div className="w-full flex justify-end items-center gap-1">
+      <div className="w-full flex flex-grow justify-end items-center gap-4">
         {dark ? (
           <BsSun className="text-white text-xl md:text-2xl" />
         ) : (
           <BsMoonStarsFill className="text-primary text-xl md:text-2xl" />
         )}
-        <div>
+        <div className="hidden md:flex ">
           <ul className="flex">
             {!user ? (
-              <>
+              <div className="flex">
                 <li>
                   <ActiveLink to={"/login"}>Login</ActiveLink>
                 </li>
                 <li>
                   <ActiveLink to={"/signup"}>Sign Up</ActiveLink>
                 </li>
-              </>
+              </div>
             ) : (
               <li>
                 <ActiveLink>Logout</ActiveLink>
