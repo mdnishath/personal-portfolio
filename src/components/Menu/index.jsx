@@ -67,7 +67,7 @@ const Menu = () => {
         <div className="flex justify-center">
           <Title text={"Authentication"} />
         </div>
-        <div className="hidden md:flex ">
+        <div className="md:flex ">
           {!user ? (
             <ul className="flex justify-center w-full text-surfece">
               <li>
