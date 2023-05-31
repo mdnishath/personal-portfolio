@@ -5,9 +5,15 @@ import { MdOutlineEmail, MdOutlinePassword } from "react-icons/md";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import SocialLogin from "../../components/SocialLogin";
 import Title from "../../components/Title";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useAuth } from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 const Login = () => {
+  const { signIn } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const {
     register,
     handleSubmit,
@@ -16,7 +22,17 @@ const Login = () => {
   } = useForm();
   const [showPaword, setShowPassword] = useState(false);
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    try {
+      await signIn(data.email, data.password);
+      toast.success("You are loged in");
+      navigate(from, { replace: true });
+    } catch (error) {
+      toast.error(error.message);
+      console.log(error);
+    }
+  };
+
   return (
     <div className="w-full bg-overlay px-5 md:py-10 rounded-md border-2 border-overlay-light overflow-hidden relative">
       <div className="grid md:grid-cols-2 py-5 md:py-0 md:p-5">
@@ -29,7 +45,10 @@ const Login = () => {
           <div className="flex justify-center">
             <Title text={"Please login here"} />
           </div>
-          <form className="flex flex-col gap-4 h-full justify-center md:p-5">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col gap-4 h-full justify-center md:p-5"
+          >
             <div className="relative overflow-hidden rounded-md">
               <input
                 type="email"

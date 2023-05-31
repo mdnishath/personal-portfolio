@@ -100,12 +100,22 @@ const Menu = () => {
               </li>
             </ul>
           ) : (
-            <button
-              onClick={handleLogout}
-              className=" px-10 py-2 bg-surfece text-text-dark font-semibold text-lg rounded-md w-full mt-4"
-            >
-              Logout
-            </button>
+            <div className="w-full">
+              <figure>
+                <img
+                  className="w-[60px] h-[60px] rounded-full object-cover  border-surfece border-2 my-3"
+                  src={user?.photoURL}
+                  alt="Profile"
+                />
+              </figure>
+              <p className="text-lg font-semibold">{user?.displayName}</p>
+              <button
+                onClick={handleLogout}
+                className=" px-10 py-2 bg-surfece text-text-dark font-semibold text-lg rounded-md w-full mt-4"
+              >
+                Logout
+              </button>
+            </div>
           )}
         </div>
       </div>

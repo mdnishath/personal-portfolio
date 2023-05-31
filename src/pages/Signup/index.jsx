@@ -5,13 +5,15 @@ import { MdOutlineEmail, MdOutlinePassword } from "react-icons/md";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import SocialLogin from "../../components/SocialLogin";
 import Title from "../../components/Title";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { BeatLoader } from "react-spinners";
+import { toast } from "react-hot-toast";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const { createUser, loading, setLoading, uploadImage, updateUser } =
     useAuth();
   const {
@@ -25,23 +27,22 @@ const Signup = () => {
 
   const onSubmit = async (data) => {
     setLoading(true);
-    const file = data.image[0];
-    const uploadURL = await uploadImage(file);
-    if (uploadURL) {
-      const result = await createUser(data.email, data.password);
-      if (result.user) {
-        updateUser(data.name, uploadURL);
+    try {
+      const file = data.image[0];
+      const uploadURL = await uploadImage(file);
+      if (uploadURL) {
+        const result = await createUser(data.email, data.password);
+        if (result.user) {
+          updateUser(data.name, uploadURL);
 
-        setLoading(false);
-        reset();
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Your Account has been created",
-          showConfirmButton: false,
-          timer: 1500,
-        });
+          setLoading(false);
+          reset();
+          toast.success("Your Account has been created");
+          navigate("/");
+        }
       }
+    } catch (error) {
+      toast.error(error.message);
     }
   };
 
