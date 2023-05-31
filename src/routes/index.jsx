@@ -9,6 +9,8 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
+import AddService from "../pages/Dashboard/AddService";
+import AllUsers from "../pages/Dashboard/AllUsers";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +37,9 @@ export const router = createBrowserRouter([
     element: <DashboardLayout />,
     children: [
       { path: "/dashboard", element: <Dashboard /> },
+      { path: "/dashboard/services", element: <Services /> },
+      { path: "/dashboard/add-service", element: <AddService /> },
+      { path: "/dashboard/users", element: <AllUsers /> },
       { path: "*", element: <Error /> },
     ],
   },

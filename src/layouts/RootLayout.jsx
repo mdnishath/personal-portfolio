@@ -6,10 +6,17 @@ import Sidbar from "../components/shared/Sidbar";
 import Container from "../components/Container";
 import { useAuth } from "../hooks/useAuth";
 import Menu from "../components/Menu";
+import GlobalLoader from "../loader/GlobalLoader";
 
 const RootLayout = () => {
-  const { isOpen } = useAuth();
-  ("flex bg-surfece flex-col md:flex-row gap-8 lg:justify-center lg:items-center  h-[calc(100%-90px)] md:h-[calc(100vh-90px)]");
+  const { isOpen, loading } = useAuth();
+  if (loading) {
+    return (
+      <div className="fixed top-0 left-0 w-full flex justify-center items-center h-full">
+        <GlobalLoader />
+      </div>
+    );
+  }
   return (
     <div className="px-2 sm:px-2 md:px-3 lg:px-4 h-full">
       <Container>

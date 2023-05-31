@@ -10,7 +10,7 @@ import ContactBox from "./ContactBox";
 import ActiveMenu from "../ActiveMenu";
 import ActiveLink from "../ActiveLink";
 import { useAuth } from "../../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Menu = () => {
   const navigate = useNavigate();
@@ -44,7 +44,7 @@ const Menu = () => {
           <Title text={"Navigation"} />
           <div>{menuOptions}</div>
         </div>
-        <div className="border-b-2 mt-5 border-[#39d68a]"></div>
+        {/* <div className="border-b-2 mt-5 border-[#39d68a]"></div>
         <div className=" my-5">
           <Title text={"Contact Info"} />
           <div className="mt-5 flex flex-col gap-4">
@@ -58,7 +58,7 @@ const Menu = () => {
             />
             <ContactBox contact={"Dhaka,Bangladesh"} icon={GoLocation} />
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="border-b-2 mt-5 border-[#39d68a]"></div>
       <div className="mt-5">
@@ -109,6 +109,11 @@ const Menu = () => {
                 />
               </figure>
               <p className="text-lg font-semibold">{user?.displayName}</p>
+              <Link to={"/dashboard"}>
+                <button className=" px-10 py-2 bg-surfece text-text-dark font-semibold text-lg rounded-md w-full mt-4">
+                  Dashboard
+                </button>
+              </Link>
               <button
                 onClick={handleLogout}
                 className=" px-10 py-2 bg-surfece text-text-dark font-semibold text-lg rounded-md w-full mt-4"
