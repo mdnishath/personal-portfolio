@@ -11,11 +11,7 @@ import GlobalLoader from "../loader/GlobalLoader";
 const RootLayout = () => {
   const { isOpen, loading } = useAuth();
   if (loading) {
-    return (
-      <div className="fixed top-0 left-0 w-full flex justify-center items-center h-full">
-        <GlobalLoader />
-      </div>
-    );
+    return <GlobalLoader />;
   }
   return (
     <div className="px-2 sm:px-2 md:px-3 lg:px-4 h-full">

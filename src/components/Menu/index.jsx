@@ -79,7 +79,7 @@ const Menu = () => {
         </div>
         <div className="md:flex ">
           {!user ? (
-            <ul className="flex w-full text-surfece">
+            <ul className="flex gap-3 w-full text-surfece">
               <li>
                 <ActiveLink
                   normal={"text-surfece"}

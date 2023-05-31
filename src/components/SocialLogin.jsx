@@ -3,8 +3,10 @@ import { BsFacebook, BsGithub, BsGoogle } from "react-icons/bs";
 import { useAuth } from "../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const SocialLogin = () => {
+  const [axiosSecure] = useAxiosSecure();
   const { googleLogin } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -13,7 +15,14 @@ const SocialLogin = () => {
   //google Login
   const handleGoogleLogin = async () => {
     try {
-      await googleLogin();
+      const res = await googleLogin();
+      await axiosSecure.post("/users", {
+        name: res.user.displayName,
+        email: res.user.email,
+        image: res.user.photoURL,
+        role: "user",
+      });
+
       toast.success("You are loged in");
       navigate(from, { replace: true });
     } catch (error) {

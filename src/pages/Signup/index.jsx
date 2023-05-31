@@ -11,6 +11,7 @@ import { useAuth } from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { BeatLoader } from "react-spinners";
 import { toast } from "react-hot-toast";
+import { API } from "../../hooks/useAxios";
 
 const Signup = () => {
   const navigate = useNavigate();

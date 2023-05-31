@@ -11,6 +11,9 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import AddService from "../pages/Dashboard/AddService";
 import AllUsers from "../pages/Dashboard/AllUsers";
+// import AdminRoute from "./AdminRoute";
+import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
   {
@@ -34,12 +37,23 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: [
       { path: "/dashboard", element: <Dashboard /> },
       { path: "/dashboard/services", element: <Services /> },
       { path: "/dashboard/add-service", element: <AddService /> },
-      { path: "/dashboard/users", element: <AllUsers /> },
+      {
+        path: "/dashboard/users",
+        element: (
+          <AdminRoute>
+            <AllUsers />
+          </AdminRoute>
+        ),
+      },
       { path: "*", element: <Error /> },
     ],
   },

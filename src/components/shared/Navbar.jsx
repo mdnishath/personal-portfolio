@@ -29,7 +29,10 @@ const Navbar = () => {
         <div className="hidden md:flex ">
           <ul className="flex">
             {!user && (
-              <div className="flex">
+              <div
+                className="flex gap-5
+              "
+              >
                 <li>
                   <ActiveLink
                     normal={"text-text"}
