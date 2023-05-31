@@ -33,8 +33,7 @@ const Signup = () => {
       if (uploadURL) {
         const result = await createUser(data.email, data.password);
         if (result.user) {
-          updateUser(data.name, uploadURL);
-
+          await updateUser(data.name, uploadURL);
           setLoading(false);
           reset();
           toast.success("Your Account has been created");

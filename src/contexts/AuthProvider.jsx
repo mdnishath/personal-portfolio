@@ -13,6 +13,7 @@ import {
 import auth from "../utils/firebase/firebase.config";
 import { storage } from "../utils/firebase/firebase.config";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { API } from "../hooks/useAxios";
 
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
@@ -73,10 +74,22 @@ const AuthProvider = ({ children }) => {
 
   //obgerver
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       console.log("obgerver user", currentUser);
       setUser(currentUser);
       setLoading(false);
+      // get and set token
+      if (currentUser) {
+        const token = localStorage.getItem("access-token");
+        if (!token) {
+          const res = await API.post("/jwt", {
+            email: currentUser.email,
+          });
+          localStorage.setItem("access-token", res.data.token);
+        }
+      } else {
+        localStorage.removeItem("access-token");
+      }
     });
     return () => {
       unsubscribe();

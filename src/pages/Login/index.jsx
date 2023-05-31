@@ -9,6 +9,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import axios from "axios";
 const Login = () => {
   const { signIn } = useAuth();
   const navigate = useNavigate();
@@ -25,6 +26,7 @@ const Login = () => {
   const onSubmit = async (data) => {
     try {
       await signIn(data.email, data.password);
+
       toast.success("You are loged in");
       navigate(from, { replace: true });
     } catch (error) {
